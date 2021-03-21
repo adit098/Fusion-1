@@ -28,7 +28,7 @@
     </thead>
 
     <tbody>
-    {% for student in hall_4_student %}
+    {% comment %} {% for student in hall_4_student %}
     <tr>
     
          <td>
@@ -47,24 +47,31 @@
             {{student.room_no}}
         </td> 
 
-         {% comment %} <td>
-            fgf
+    </tr>
+    {% endfor %} {% endcomment %}
+
+   {% for student in hall_4_allotment %}
+    <tr>
+    
+         <td>
+            {{student.0}}
         </td>
 
         <td>
-            fdgdg
+            {{student.1}}
         </td>
 
         <td>
-            htfh
-        </td>
+            {{student.2}}
+        </td> 
 
         <td>
-           ytry
-        </td> {% endcomment %}
+            {{student.3}}
+        </td> 
 
     </tr>
     {% endfor %}
+
 
     </tbody>
 </table>
