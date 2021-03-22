@@ -5,6 +5,27 @@
    <div class="ui form" style="padding: 8px; padding-left: 24px; padding-right: 24px;">
         {% csrf_token %}
 
+        {% ifequal user.username "shyams" %}
+        <div class="field">
+            <h4 class="ui blue header">Note : Provide the data in Excel Sheet(xls not xlsx) in following format:</h4>
+            SI NO. | ROLL NO. | STUDENT NAME | MALE/ FEMALE  | PROGRAM | BATCH/ YEAR | DISEIPLINE | ROOM NO | 
+            BLOCK | Hall
+            <h4 class="ui dividing header"><a href="..\media\hostel_management\HALL 4 upload.xls">Download</a> the sample Excel, fill the data accordingly and then upload the same</h4>
+        </div>
+        
+       <div class="field">
+            <label>Hall 3 upload</label>
+            <input type='file' name='hall4room'> 
+
+           <button class="ui primary button right floated" type="submit">
+                <i class="upload icon"></i> Upload
+           </button>
+       </div>
+
+        {% endifequal %}
+
+        {% ifequal user.username "shivdayal" %}
+
         <div class="field">
             <h4 class="ui blue header">Note : Provide the data in Excel Sheet(xls not xlsx) in following format:</h4>
             SI NO. | ROLL NO. | STUDENT NAME | MALE/ FEMALE  | PROGRAM | BATCH/ YEAR | DISEIPLINE | ROOM NO | 
@@ -20,21 +41,33 @@
                 <i class="upload icon"></i> Upload
            </button>
        </div>
+
+       {% endifequal %}
+
+       {% ifequal user.username "kusum" %}
+
+        <div class="field">
+            <h4 class="ui blue header">Note : Provide the data in Excel Sheet(xls not xlsx) in following format:</h4>
+            SI NO. | ROLL NO. | STUDENT NAME | MALE/ FEMALE  | PROGRAM | BATCH/ YEAR | DISEIPLINE | ROOM NO | 
+            BLOCK | Hall
+            <h4 class="ui dividing header"><a href="..\media\hostel_management\HALL 4 upload.xls">Download</a> the sample Excel, fill the data accordingly and then upload the same</h4>
+        </div>
+        
+       <div class="field">
+            <label>Hall 1 upload</label>
+            <input type='file' name='hall4room'> 
+
+           <button class="ui primary button right floated" type="submit">
+                <i class="upload icon"></i> Upload
+           </button>
+       </div>
+
+       {% endifequal %}
    </div>
 </form>
 
 <br>
 <br>
 <div class="ui divider"></div>
-<script type="text/javascript">
-   
-   function isNumberKey(evt){
-   var charCode = (evt.which) ? evt.which : event.keyCode
-   if (charCode > 31 && (charCode < 48 || charCode > 57))
-       return false;
-   return true;
-}
-
-</script>
 
  {% endblock %}

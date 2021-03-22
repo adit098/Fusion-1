@@ -25,22 +25,60 @@ def view_alloted_room(request):
 
 def add_hall_room(request):
     if request.method == "POST":
-        # print("inside")
         files = request.FILES['hall4room']
         excel = xlrd.open_workbook(file_contents=files.read())
-        hall_4_allotment = []
-        for sheet in excel.sheets():
-            for row in range(1, sheet.nrows):
-                roll_no = int(sheet.cell(row,1).value)
-                name = str(sheet.cell(row,2).value)
-                program = str(sheet.cell(row,4).value)
-                room_no = int(sheet.cell(row,7).value)
-                block = str(sheet.cell(row,8).value)
-                hall_4_allotment.append([roll_no, name, program, room_no, block])
-        # print(hall_4_allotment[:5])
-        hall_4_allotment = hall_4_allotment[:10]
+        if str(excel.sheets()[0].cell(2,9).value) == 'Hall-4':
+            hall_4_allotment = []
+            for sheet in excel.sheets():
+                for row in range(1, sheet.nrows):
+                    roll_no = int(sheet.cell(row,1).value)
+                    name = str(sheet.cell(row,2).value)
+                    program = str(sheet.cell(row,4).value)
+                    room_no = str(sheet.cell(row,7).value)
+                    block = str(sheet.cell(row,8).value)
+                    hall_4_allotment.append([roll_no, name, program, room_no, block])
+            hall_4_allotment = hall_4_allotment[:10]
 
-        context = {
-            'hall_4_allotment': hall_4_allotment
-        }
-    return render(request, 'hostelmanagement/hostel.html', context)
+            
+            context = {
+                'hall_4_allotment': hall_4_allotment
+            }
+            return render(request, 'hostelmanagement/hostel.html', context)
+
+        if str(excel.sheets()[0].cell(2,9).value) == 'Hall-3':
+            hall_3_allotment = []
+            for sheet in excel.sheets():
+                for row in range(1, sheet.nrows):
+                    roll_no = int(sheet.cell(row,1).value)
+                    name = str(sheet.cell(row,2).value)
+                    program = str(sheet.cell(row,4).value)
+                    room_no = str(sheet.cell(row,7).value)
+                    block = str(sheet.cell(row,8).value)
+                    hall_3_allotment.append([roll_no, name, program, room_no, block])
+            hall_3_allotment = hall_3_allotment[:10]
+
+            
+            context = {
+                'hall_3_allotment': hall_3_allotment
+            }
+            return render(request, 'hostelmanagement/hostel.html', context)
+
+        if str(excel.sheets()[0].cell(2,9).value)[:6] == 'Hall-1':
+            print("insdie hall1")
+            hall_1_allotment = []
+            for sheet in excel.sheets():
+                for row in range(1, sheet.nrows):
+                    roll_no = int(sheet.cell(row,1).value)
+                    name = str(sheet.cell(row,2).value)
+                    program = str(sheet.cell(row,4).value)
+                    room_no = str(sheet.cell(row,7).value)
+                    block = str(sheet.cell(row,8).value)
+                    hall_1_allotment.append([roll_no, name, program, room_no, block])
+            hall_1_allotment = hall_1_allotment[:10]
+
+            context = {
+                'hall_1_allotment': hall_1_allotment
+            }
+            return render(request, 'hostelmanagement/hostel.html', context)
+
+        return render(request, 'hostelmanagement/hostel.html')
