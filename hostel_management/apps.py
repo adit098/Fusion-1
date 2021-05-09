@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class HostelManagementConfig(AppConfig):
-    name = 'hostel_management'
+    name = 'applications.hostel_management'

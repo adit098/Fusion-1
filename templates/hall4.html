@@ -28,7 +28,7 @@
     </thead>
 
     <tbody>
-    {% comment %} {% for student in hall_4_student %}
+    {% for student in hall_4_student %}
     <tr>
     
          <td>
@@ -36,7 +36,7 @@
         </td>
 
         <td>
-            {{student.id.user.first_name}} {{' '}} {{student.id.user.last_name}}
+            {{student.id.user.first_name}}  {{student.id.user.last_name}}
         </td>
 
         <td>
@@ -48,30 +48,7 @@
         </td> 
 
     </tr>
-    {% endfor %} {% endcomment %}
-
-   {% for student in hall_4_allotment %}
-    <tr>
-    
-         <td>
-            {{student.0}}
-        </td>
-
-        <td>
-            {{student.1}}
-        </td>
-
-        <td>
-            {{student.2}}
-        </td> 
-
-        <td>
-            {{student.3}}
-        </td> 
-
-    </tr>
     {% endfor %}
-
 
     </tbody>
 </table>
